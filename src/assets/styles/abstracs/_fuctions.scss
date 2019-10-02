@@ -1,0 +1,8 @@
+@function color($key, $map: $pallet) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $pallet";
+  @return null;
+}
