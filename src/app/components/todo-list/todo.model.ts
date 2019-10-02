@@ -1,4 +1,5 @@
 export interface TodoModel {
   id: number;
-  text: string;
+  title: string;
+  description: string;
 }
