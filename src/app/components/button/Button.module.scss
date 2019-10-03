@@ -1,0 +1,15 @@
+.Button {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #50b7e8;
+  background-color: #50b7e8;
+  color: #fff;
+  font-size: 0;
+
+  &::before,
+  &::after {
+    position: absolute;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.scss';
 
-import { TodoList, Header } from './components';
+import { TodoList, Header, Button } from './components';
 
 const itmes = [
   { id: 0, title: 'Learn', description: 'Learn past perfect tence' },
@@ -22,6 +22,7 @@ const App: React.FC = () => {
       <Header />
       <main className={styles.Main}>
         <TodoList items={itmes} />
+        <Button>Add</Button>
       </main>
     </div>
   );
