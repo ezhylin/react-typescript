@@ -1,16 +1,12 @@
 import React from 'react';
-import { Button, ButtonPropsModel } from './Button.component';
+import { Button, Props } from './Button.component';
 import { render } from '@testing-library/react';
 
 describe('Button component', () => {
-  const getButton = ({ children, ...extraProps }: ButtonPropsModel) => <Button {...extraProps}>{children}</Button>;
+  const getButton = ({ children, ...extraProps }: Props) => <Button {...extraProps}>{children}</Button>;
 
   it('should renders', () => {
-    const { asFragment, getByText } = render(
-      getButton({
-        children: 'Add'
-      })
-    );
+    const { asFragment } = render(getButton({ children: 'Add' }));
 
     expect(asFragment()).toMatchSnapshot();
   });

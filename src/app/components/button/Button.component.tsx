@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
 
-export type ButtonPropsModel = {
+export type Props = {
   type?: 'button' | 'submit';
   children: any;
 };
 
-export const Button: FC<ButtonPropsModel> = ({ children, ...props }: ButtonPropsModel) => (
-  <button {...props}>{children}</button>
-);
+export const Button: FC<Props> = ({ children, ...props }: Props) => <button {...props}>{children}</button>;
 
 Button.defaultProps = {
   type: 'button'
