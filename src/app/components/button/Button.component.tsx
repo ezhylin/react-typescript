@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
 import styles from './Button.module.scss';
 import classnames from 'classnames';
 
 export type Props = {
   type?: 'button' | 'submit';
   classList?: string[];
-  onClick?: () => void;
+  onClick?: (event: MouseEvent) => void;
 };
 
-export const Button: FC<Props> = ({ children, classList, ...props }) => (
-  <button className={classnames(styles.Button, ...classList)} {...props}>
+export const Button: FC<Props> = ({ children, classList, onClick: handleClick, ...props }) => (
+  <button className={classnames(styles.Button, ...classList)} onClick={handleClick} {...props}>
     {children}
   </button>
 );
@@ -17,4 +17,5 @@ export const Button: FC<Props> = ({ children, classList, ...props }) => (
 Button.defaultProps = {
   type: 'button',
   classList: [],
+  onClick: undefined,
 };
