@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Props } from './Button.component';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+
+import { Button, Props } from './Button.component';
 
 describe('Button component', () => {
   const getButton = (extraProps?: Props) => <Button {...extraProps}>Add</Button>;
@@ -23,12 +24,26 @@ describe('Button component', () => {
   });
 
   it('should spread additional class names', () => {
-    const { container } = render(
+    const { container, getByText } = render(
       getButton({
-        classList: ['className1, className2'],
+        classList: ['className1', 'className2'],
       }),
     );
 
+    expect(getByText('Add')).toHaveAttribute('class', 'Button className1 className2');
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should accept onClick props', () => {
+    const handleClick = jest.fn();
+    const { getByText } = render(
+      getButton({
+        onClick: handleClick,
+      }),
+    );
+
+    fireEvent.click(getByText('Add'));
+
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });

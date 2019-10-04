@@ -11,7 +11,7 @@ exports[`Button component should renders 1`] = `
 
 exports[`Button component should spread additional class names 1`] = `
 <button
-  class="Button className1, className2"
+  class="Button className1 className2"
   type="button"
 >
   Add

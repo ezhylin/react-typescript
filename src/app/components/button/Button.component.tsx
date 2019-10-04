@@ -5,6 +5,7 @@ import classnames from 'classnames';
 export type Props = {
   type?: 'button' | 'submit';
   classList?: string[];
+  onClick?: () => void;
 };
 
 export const Button: FC<Props> = ({ children, classList, ...props }) => (

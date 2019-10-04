@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styles from './App.module.scss';
 
-import { TodoList, Header, Button } from './components';
+import { TodoList, Header, Button, Todo } from './components';
 
-const itmes = [
-  { id: 0, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 1, title: 'fasdf  asdfdaf asdf', description: 'dsaf as asf sd dfasdfdsfas fsdf sdfsd asdf' },
-  { id: 2, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 3, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 4, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 5, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 6, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 7, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 8, title: 'Learn', description: 'Learn past perfect tence' },
-  { id: 9, title: 'Learn', description: 'Learn past perfect tence' }
-];
-
-const App: React.FC = () => {
-  return (
-    <div className={styles.App}>
-      <Header />
-      <main className={styles.Main}>
-        <TodoList items={itmes} />
-        <Button>Add</Button>
-      </main>
-    </div>
-  );
+export type Props = {
+  todos?: Todo[] | undefined;
 };
+
+export type State = {
+  todos: Todo[] | undefined;
+};
+
+class App extends PureComponent<Props, State> {
+  state = {
+    todos: this.props.todos || [],
+  };
+
+  render(): JSX.Element {
+    const { todos } = this.state;
+
+    return (
+      <div className={styles.App}>
+        <Header />
+
+        <main className={styles.Main}>
+          <TodoList items={todos} />
+
+          <div className={styles.ButtonFixed}>
+            <Button>Add</Button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+}
 
 export default App;

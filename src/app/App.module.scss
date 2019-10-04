@@ -11,3 +11,10 @@
 .Main {
   flex: 1 0 auto;
 }
+
+.ButtonFixed {
+  position: fixed;
+  z-index: 9999;
+  bottom: 48px;
+  right: 24px;
+}
