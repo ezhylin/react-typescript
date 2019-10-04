@@ -1,12 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button component should renders 1`] = `
-<DocumentFragment>
-  <button
-    class="Button"
-    type="button"
-  >
-    Add
-  </button>
-</DocumentFragment>
+<button
+  class="Button"
+  type="button"
+>
+  Add
+</button>
+`;
+
+exports[`Button component should spread additional class names 1`] = `
+<button
+  class="Button className1, className2"
+  type="button"
+>
+  Add
+</button>
 `;

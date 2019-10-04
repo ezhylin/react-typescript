@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TodoList, TodoListProps } from './TodoList.component';
+import { TodoList, Props } from './TodoList.component';
 import { Todo } from './todo.model';
 
 describe('TodoList component', () => {
   const todos: Todo[] = [{ id: 0, title: 'title', description: 'descriptoin' }];
-  const createTodoList = (extraProps?: TodoListProps) => <TodoList items={todos} {...extraProps} />;
+  const createTodoList = (extraProps?: Props) => <TodoList items={todos} {...extraProps} />;
 
   it('should renders', () => {
     const { asFragment } = render(createTodoList());
