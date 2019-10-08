@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styles from './App.module.scss';
 
-import { TodoList, Header, Button, Todo } from './components';
+import { TodoList, Header, Todo } from './components';
 
 export type Props = {
   todos?: Todo[] | undefined;
@@ -22,13 +22,8 @@ class App extends PureComponent<Props, State> {
     return (
       <div className={styles.App}>
         <Header />
-
         <main className={styles.Main}>
           <TodoList items={todos} />
-
-          <div className={styles.ButtonFixed}>
-            <Button>Add</Button>
-          </div>
         </main>
       </div>
     );
